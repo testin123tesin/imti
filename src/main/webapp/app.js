@@ -1,7 +1,7 @@
-Application.run(function ($rootScope) {
+Application.run(function($rootScope) {
     "use strict";
     /* perform any action on the variables within this block(on-page-load) */
-    $rootScope.onAppVariablesReady = function () {
+    $rootScope.onAppVariablesReady = function() {
         /*
          * variables can be accessed through '$rootScope.Variables' property here
          * e.g. $rootScope.Variables.staticVariable1.getData()
@@ -9,7 +9,7 @@ Application.run(function ($rootScope) {
     };
 
     /* perform any action on session timeout here, e.g clearing some data, etc */
-    $rootScope.onSessionTimeout = function () {
+    $rootScope.onSessionTimeout = function() {
         /*
          * NOTE:
          * On re-login after session timeout:
@@ -38,7 +38,32 @@ Application.run(function ($rootScope) {
      * xhrObj:      The xhrObject used to make the service call
      *              This object contains useful information like statusCode, url, request/response body.
      */
-    $rootScope.onServiceError = function (source, errorMsg, xhrObj) {
+    $rootScope.onServiceError = function(source, errorMsg, xhrObj) {
 
     };
+
+    $rootScope.passiveContainers1onSuccess = function(variable, data) {
+
+        debugger;
+
+    };
+
+
+    $rootScope.activeContainersonSuccess = function(variable, data) {
+
+        debugger;
+
+        $rootScope.Variables.emailAddress.dataSet = _.uniqBy(_.map(data.success.body.content, 'emailAddress'));
+
+        if ($rootScope.Variables.emailAddress.dataSet.length > 1) {
+
+            $rootScope.Widgets.container1.Widgets.dialog2.open();
+
+        } else {
+            $rootScope.Widgets.container2.show = true;
+        }
+
+
+    };
+
 });

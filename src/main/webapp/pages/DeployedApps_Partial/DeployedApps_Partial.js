@@ -44,3 +44,66 @@ Application.$controller("passiveContainersTable1Controller", ["$scope",
         $scope.ctrlScope = $scope;
     }
 ]);
+
+Application.$controller("dialog1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("dialog2Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+
+        $scope.checkboxset1Change = function($event, $isolateScope, newVal, oldVal) {
+
+            if (newVal.length > 1) {
+                $scope.Variables.emailToast.notify();
+            }
+
+        };
+
+
+        $scope.button2Click = function($event, $isolateScope) {
+
+            if ($scope.Widgets.checkboxset1.datavalue === undefined) {
+                $scope.Variables.emailToast.notify();
+
+            } else {
+
+                if ($scope.Widgets.checkboxset1.datavalue.length != 1) {
+                    $scope.Variables.emailToast.notify();
+                } else {
+
+                    $scope.Widgets.dialog2.close();
+
+                    var lv = $scope.Variables.activeContainers;
+                    lv.setInput({
+                        "q": $scope.Widgets.checkboxset1.datavalue[0]
+                    });
+
+                    lv.invoke();
+
+                    var sv = $scope.Variables.passiveContainers1;
+                    lv.setInput({
+                        "q": $scope.Widgets.checkboxset1.datavalue[0]
+                    });
+
+                    sv.invoke();
+                }
+
+            }
+
+        };
+
+
+        $scope.dialog2Close = function($event, $isolateScope) {
+
+            $isolateScope.$parent.$parent.Widgets.container1.show = true;
+
+        };
+
+    }
+]);

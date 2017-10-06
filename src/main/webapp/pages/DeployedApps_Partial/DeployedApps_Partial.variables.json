@@ -1,1 +1,22 @@
-{ }
+{
+  "emailToast" : {
+    "_id" : "wm-emailToast-wm.NotificationVariable-1507313240508",
+    "name" : "emailToast",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Invalid selection of Email Address",
+      "type" : "string"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  }
+}

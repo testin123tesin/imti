@@ -18,7 +18,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "onBeforeUpdate" : "activeContainersonBeforeUpdate($event, $scope)",
+    "onSuccess" : "activeContainersonSuccess($event, $scope)",
     "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
@@ -41,6 +41,30 @@
       "type" : "list"
     } ],
     "operation" : "toast"
+  },
+  "count" : {
+    "_id" : "wm-count-wm.Variable-1507316534721",
+    "name" : "count",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "emailAddress" : {
+    "_id" : "wm-staticVariable1-wm.Variable-1507311354964",
+    "name" : "emailAddress",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
   },
   "goToPage_Main" : {
     "_id" : "wm-wm.NavigationVariable1389180517517",
@@ -99,8 +123,9 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
+    "onSuccess" : "passiveContainers1onSuccess($event, $scope)",
     "startUpdate" : false,
-    "autoUpdate" : true,
+    "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,

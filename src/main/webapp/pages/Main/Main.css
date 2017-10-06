@@ -1,0 +1,12 @@
+.wm-app .nav-tabs > li.active > a, .wm-app .nav-tabs > li.active > a:hover, .wm-app .nav-tabs > li.active > a:focus {
+    background-color: #0D406B
+}
+
+.wm-app .nav-tabs > li > a:hover{
+    background-color:  #0D406B
+}
+
+.wm-app .nav-tabs > li.active > a,.wm-app .nav-tabs > li > a:hover, .wm-app .nav-tabs > li > a:focus{
+    color: white !important;
+}
+
