@@ -1,0 +1,27 @@
+{
+  "endpointAddress" : "https://www.wavemakeronline.com/services/rest/admin/files/container/{containerId}/archive",
+  "method" : "GET",
+  "headers" : { },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "dirPath" : "/root/WaveMaker/WaveMaker-Studio/logs"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : null,
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 0,
+    "headers" : {
+      "date" : [ "Fri, 06 Oct 2017 12:16:43 GMT" ],
+      "cache-control" : [ "max-age=0" ],
+      "content-disposition" : [ "attachment; filename = logs.tar.gz" ],
+      "etag" : [ "\"0d41d8cd98f00b204e9800998ecf8427e\"" ],
+      "server" : [ "CloudJee Server/7.0 [Servlet/3.0 JSP/2.1]" ],
+      "content-type" : [ "application/x-octet-stream" ]
+    },
+    "responseBody" : "",
+    "convertedResponse" : null
+  },
+  "proxy" : null
+}

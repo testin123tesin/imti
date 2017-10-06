@@ -1,0 +1,266 @@
+{
+  "basePath" : "${rest.wavemakeronline.basepath}",
+  "paths" : {
+    "/rest/admin/containerService/list/active" : {
+      "x-WM-BASE_PATH" : "/rest/admin/containerService/list/active",
+      "x-WM-TAG" : "RestServiceVirtualController",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "wavemakeronline_RestServiceVirtualController-invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "q",
+          "format" : "string",
+          "description" : "q",
+          "type" : "string",
+          "required" : false
+        } ],
+        "tags" : [ "RestServiceVirtualController" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.wavemakeronline.scheme}://${rest.wavemakeronline.host}${rest.wavemakeronline.basepath}/rest/admin/containerService/list/active"
+    }
+  },
+  "host" : "${rest.wavemakeronline.host}",
+  "schemes" : [ "${rest.wavemakeronline.scheme}" ],
+  "definitions" : {
+    "containerMappingVOListEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline.containerMappingVOListEntryItem",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "port", "portType" ],
+      "properties" : {
+        "portType" : {
+          "type" : "string"
+        },
+        "port" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "success" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline.success",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/body"
+        }
+      }
+    },
+    "contentEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline.contentEntryItem",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "appName", "appTomcatLogs", "containerId", "containerMappingVOList", "containerTypes", "containerVolumeId", "emailAddress", "fullContainerId", "hibernationEnabled", "instanceId", "ipAddress", "lastUpdated", "mountPoint", "mysqlPort", "nodeName", "passivationEnabled", "rootFs", "rsPort", "shardId", "sshPort", "state", "tenantId", "tenantName", "tomcatPort", "workspaceHomeInContainer", "workspaceHomeInInstance" ],
+      "properties" : {
+        "nodeName" : {
+          "type" : "string"
+        },
+        "tomcatPort" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "lastUpdated" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "instanceId" : {
+          "type" : "string"
+        },
+        "containerMappingVOList" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/containerMappingVOListEntryItem"
+          }
+        },
+        "tenantName" : {
+          "type" : "string"
+        },
+        "workspaceHomeInInstance" : {
+          "type" : "string"
+        },
+        "rootFs" : {
+          "type" : "string"
+        },
+        "workspaceHomeInContainer" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "containerId" : {
+          "type" : "string"
+        },
+        "containerTypes" : {
+          "$ref" : "#/definitions/containerTypes"
+        },
+        "sshPort" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "rsPort" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "hibernationEnabled" : {
+          "type" : "boolean"
+        },
+        "mountPoint" : {
+          "type" : "string"
+        },
+        "passivationEnabled" : {
+          "type" : "boolean"
+        },
+        "fullContainerId" : {
+          "type" : "string"
+        },
+        "appName" : {
+          "type" : "string"
+        },
+        "ipAddress" : {
+          "type" : "string"
+        },
+        "shardId" : {
+          "type" : "string"
+        },
+        "mysqlPort" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "containerVolumeId" : {
+          "type" : "string"
+        },
+        "appTomcatLogs" : {
+          "type" : "string"
+        },
+        "tenantId" : {
+          "type" : "string"
+        }
+      }
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline.java.lang.Object",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ]
+    },
+    "body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline.body",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "content", "numberOfElements", "pageNumber", "totalElements", "userInput" ],
+      "properties" : {
+        "pageNumber" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "numberOfElements" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "userInput" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          }
+        },
+        "content" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/contentEntryItem"
+          }
+        },
+        "totalElements" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline.RootResponse",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "success" ],
+      "properties" : {
+        "success" : {
+          "$ref" : "#/definitions/success"
+        }
+      }
+    },
+    "containerTypes" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline.containerTypes",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "code", "cpu", "createdAt", "createdBy", "description", "diskInMB", "id", "lastModifiedAt", "lastModifiedBy", "memoryInMB", "name", "system" ],
+      "properties" : {
+        "diskInMB" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "createdAt" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "lastModifiedAt" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "system" : {
+          "type" : "boolean"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "memoryInMB" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "lastModifiedBy" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "cpu" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : false,
+    "x-WM-USE_PROXY_FOR_MOBILE" : false,
+    "x-WM-API_ID" : "1182cfb3-d8b7-4ca5-ae31-d2f5bed6f6e9",
+    "x-WM-SERVICE_ID" : "wavemakeronline",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService"
+  },
+  "tags" : [ {
+    "name" : "RestServiceVirtualController",
+    "description" : "Rest service swagger documentation"
+  } ]
+}

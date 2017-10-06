@@ -1,0 +1,62 @@
+{
+  "basePath" : "${rest.wavemakeronline2.basepath}",
+  "paths" : {
+    "/rest/admin/files/container/{containerId}/archive" : {
+      "x-WM-BASE_PATH" : "/rest/admin/files/container/{containerId}/archive",
+      "x-WM-TAG" : "RestServiceVirtualController",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/x-octet-stream", "application/octet-stream" ],
+        "operationId" : "wavemakeronline2_RestServiceVirtualController-invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "dirPath",
+          "format" : "string",
+          "description" : "dirPath",
+          "type" : "string",
+          "required" : false
+        }, {
+          "in" : "path",
+          "name" : "containerId",
+          "type" : "string",
+          "required" : true
+        } ],
+        "tags" : [ "RestServiceVirtualController" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.wavemakeronline2.scheme}://${rest.wavemakeronline2.host}${rest.wavemakeronline2.basepath}/rest/admin/files/container/{containerId}/archive"
+    }
+  },
+  "host" : "${rest.wavemakeronline2.host}",
+  "schemes" : [ "${rest.wavemakeronline2.scheme}" ],
+  "definitions" : {
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "wavemakeronline2.RootResponse",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ]
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : false,
+    "x-WM-USE_PROXY_FOR_MOBILE" : false,
+    "x-WM-API_ID" : "a5dbb6d3-63e1-430e-9715-0f9d54e30135",
+    "x-WM-SERVICE_ID" : "wavemakeronline2",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService"
+  },
+  "tags" : [ {
+    "name" : "RestServiceVirtualController",
+    "description" : "Rest service swagger documentation"
+  } ]
+}

@@ -13,7 +13,28 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
+                <directory>services/passiveContainers/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/wavemakeronline/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/wavemakeronline2/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -96,7 +117,10 @@
                         </goals>
                         <configuration>
                             <sources>
+                                <source>services/passiveContainers/src</source>
                                 <source>services/securityService/src</source>
+                                <source>services/wavemakeronline/src</source>
+                                <source>services/wavemakeronline2/src</source>
                             </sources>
                         </configuration>
                     </execution>

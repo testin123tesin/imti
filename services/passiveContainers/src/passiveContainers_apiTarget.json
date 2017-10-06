@@ -1,0 +1,147 @@
+{
+  "basePath" : "${rest.passiveContainers.basepath}",
+  "paths" : {
+    "/rest/admin/containerService/list/passive" : {
+      "x-WM-BASE_PATH" : "/rest/admin/containerService/list/passive",
+      "x-WM-TAG" : "RestServiceVirtualController",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "passiveContainers_RestServiceVirtualController-invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "q",
+          "format" : "string",
+          "description" : "q",
+          "type" : "string",
+          "required" : false
+        } ],
+        "tags" : [ "RestServiceVirtualController" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.passiveContainers.scheme}://${rest.passiveContainers.host}${rest.passiveContainers.basepath}/rest/admin/containerService/list/passive"
+    }
+  },
+  "host" : "${rest.passiveContainers.host}",
+  "schemes" : [ "${rest.passiveContainers.scheme}" ],
+  "definitions" : {
+    "success" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "passiveContainers.success",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/body"
+        }
+      }
+    },
+    "contentEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "passiveContainers.contentEntryItem",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "appName", "containerId", "createdAt", "emailAddress", "fileName", "fileSize", "previousInstanceId", "tenantName", "version" ],
+      "properties" : {
+        "createdAt" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "fileName" : {
+          "type" : "string"
+        },
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "tenantName" : {
+          "type" : "string"
+        },
+        "fileSize" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "previousInstanceId" : {
+          "type" : "string"
+        },
+        "appName" : {
+          "type" : "string"
+        },
+        "containerId" : {
+          "type" : "string"
+        },
+        "version" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "passiveContainers.java.lang.Object",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ]
+    },
+    "body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "passiveContainers.body",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "content", "numberOfElements", "pageNumber", "totalElements", "userInput" ],
+      "properties" : {
+        "pageNumber" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "numberOfElements" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "userInput" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          }
+        },
+        "content" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/contentEntryItem"
+          }
+        },
+        "totalElements" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "passiveContainers.RootResponse",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "success" ],
+      "properties" : {
+        "success" : {
+          "$ref" : "#/definitions/success"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : false,
+    "x-WM-USE_PROXY_FOR_MOBILE" : false,
+    "x-WM-API_ID" : "ba6d54cc-ec15-49f0-871f-c7a8e9ee1a01",
+    "x-WM-SERVICE_ID" : "wavemakeronline2",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService"
+  },
+  "tags" : [ {
+    "name" : "RestServiceVirtualController",
+    "description" : "Rest service swagger documentation"
+  } ]
+}

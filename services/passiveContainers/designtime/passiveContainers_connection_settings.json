@@ -1,0 +1,28 @@
+{
+  "endpointAddress" : "https://www.wavemakeronline.com/services/rest/admin/containerService/list/passive",
+  "method" : "GET",
+  "headers" : { },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "q" : "praveen.noonsawath@wavemaker.com"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : null,
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 0,
+    "headers" : {
+      "date" : [ "Fri, 06 Oct 2017 09:31:34 GMT" ],
+      "cache-control" : [ "max-age=0" ],
+      "server" : [ "CloudJee Server/7.0 [Servlet/3.0 JSP/2.1]" ],
+      "connection" : [ "keep-alive" ],
+      "etag" : [ "\"0769988c416ba887d833e949864d206da\"" ],
+      "content-length" : [ "634" ],
+      "content-type" : [ "application/json" ]
+    },
+    "responseBody" : "{\"success\":{\"body\":{\"pageNumber\":0,\"numberOfElements\":2,\"totalElements\":2,\"userInput\":[],\"content\":[{\"containerId\":\"ctnr-c8efbe9a-0846-480f-a08c-2629decb3206\",\"tenantName\":null,\"fileName\":\"ctnr-c8efbe9a-0846-480f-a08c-2629decb3206\",\"fileSize\":0,\"createdAt\":1498200699000,\"previousInstanceId\":\"ci-zWXcMXdK\",\"version\":3,\"appName\":\"live-Test_Excel\",\"emailAddress\":null},{\"containerId\":\"ctnr-143176c6-6845-4f4c-9808-121a67381ced\",\"tenantName\":null,\"fileName\":\"ctnr-143176c6-6845-4f4c-9808-121a67381ced\",\"fileSize\":0,\"createdAt\":1498200647000,\"previousInstanceId\":\"ci-zWXcMXdK\",\"version\":3,\"appName\":\"live-Test_22\",\"emailAddress\":null}]}}}",
+    "convertedResponse" : null
+  },
+  "proxy" : null
+}

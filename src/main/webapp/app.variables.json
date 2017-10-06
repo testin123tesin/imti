@@ -1,4 +1,31 @@
 {
+  "activeContainers" : {
+    "_id" : "wm-activeContainers-wm.ServiceVariable-1507273500002",
+    "name" : "activeContainers",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "q",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "wavemakeronline.RootResponse",
+    "service" : "wavemakeronline",
+    "operation" : "invoke",
+    "operationId" : "wavemakeronline_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onBeforeUpdate" : "activeContainersonBeforeUpdate($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "RestServiceVirtual"
+  },
   "appNotification" : {
     "_id" : "wm-appErrorHandler-wm.NotificationVariable-1454664620943",
     "name" : "appNotification",
@@ -22,6 +49,62 @@
     "category" : "wm.NavigationVariable",
     "operation" : "gotoPage",
     "pageName" : "Main"
+  },
+  "logsDownload" : {
+    "_id" : "wm-logsDownload-wm.ServiceVariable-1507292505603",
+    "name" : "logsDownload",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "dirPath",
+      "value" : "/root/WaveMaker/WaveMaker-Studio/logs",
+      "type" : "string"
+    }, {
+      "target" : "containerId",
+      "value" : "bind:Widgets.wavemakeronlineTable1.selecteditem.containerId",
+      "type" : "string"
+    } ],
+    "type" : "wavemakeronline2.RootResponse",
+    "service" : "wavemakeronline2",
+    "operation" : "invoke",
+    "operationId" : "wavemakeronline2_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "RestServiceVirtual"
+  },
+  "passiveContainers1" : {
+    "_id" : "wm-passiveContainers1-wm.ServiceVariable-1507285581114",
+    "name" : "passiveContainers1",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "q",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "passiveContainers.RootResponse",
+    "service" : "passiveContainers",
+    "operation" : "invoke",
+    "operationId" : "passiveContainers_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "RestServiceVirtual"
   },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",

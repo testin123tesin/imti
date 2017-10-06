@@ -1,0 +1,36 @@
+<wm-partial data-ng-controller="DeployedApps_PartialPageController" name="partial1">
+    <wm-tabs name="tabs1">
+        <wm-tabpane name="tabpane1" title="ACTIVATED CONTAINERS">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn2"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="7" class="pull-right" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em" caption="Un-checked" class="pull-right" name="label1"></wm-label>
+                        <wm-container width="15px" height="15px" color="#f5873e" backgroundcolor="#f5873e" class="pull-right" name="container1"></wm-container>
+                        <wm-label padding="unset 0.5em" caption="Checked" class="pull-right" name="label2"></wm-label>
+                        <wm-container width="15px" height="15px" color="#0D406B" backgroundcolor="#0D406B" class="pull-right" name="container2"></wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-table name="wavemakeronlineTable1" title="" dataset="bind:Variables.activeContainers.dataSet.success.body.content" navigation="Basic" rowngclass="{'success':row.state === 'ACTIVATED', 'warning':row.state === 'HIBERNATE'}" pagesize="10">
+                <wm-table-column binding="containerId" caption="Container Id" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="appName" caption="App Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="ipAddress" caption="Ip Address" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="state" caption="State" edit-widget-type="text" type="string" show="true" readonly="false">
+                    <wm-switch name="switch1" dataset="HIBERNATE,ACTIVATED" datavalue="{{row.state}}"></wm-switch>
+                </wm-table-column>
+                <wm-table-column binding="Download" caption="Download" widget-type="anchor" width="100px" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
+                    <wm-anchor caption="LOGS" hyperlink="" class="" data-ng-class="" iconclass="wi wi-cloud-download fa-2x" on-click="anchor1Click($event, $scope, row)" show="bind:row.state !=='HIBERNATE'"></wm-anchor>
+                </wm-table-column>
+                <wm-table-column binding="emailAddress" caption="Email Address" type="string" show="true" readonly="undefined"></wm-table-column>
+            </wm-table>
+        </wm-tabpane>
+        <wm-tabpane name="tabpane2" title="PASSIVATED CONTAINERS">
+            <wm-table name="passiveContainersTable1" title="" dataset="bind:Variables.passiveContainers1.dataSet.success.body.content" navigation="Basic" rowngclass="{'danger':1===1}" pagesize="10">
+                <wm-table-column binding="containerId" caption="Container Id" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                <wm-table-column binding="appName" caption="App Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+            </wm-table>
+        </wm-tabpane>
+    </wm-tabs>
+</wm-partial>
