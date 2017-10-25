@@ -1,0 +1,284 @@
+{
+  "FileController_getDownloadFile" : {
+    "id" : "FileController_getDownloadFile",
+    "service" : "FileService",
+    "controller" : "FileController",
+    "operationType" : "com.wavemaker.runtime.file.model.DownloadResponse",
+    "type" : "com.wavemaker.runtime.file.model.DownloadResponse",
+    "wmServiceOperationInfo" : {
+      "name" : "getDownloadFile",
+      "methodType" : "get",
+      "relativePath" : "/file/downloadFile",
+      "directPath" : "/file/downloadFile",
+      "httpMethod" : "get",
+      "parameters" : [ {
+        "name" : "file",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      }, {
+        "name" : "returnName",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      } ],
+      "definitions" : { },
+      "produces" : [ "application/octet-stream" ],
+      "consumes" : null,
+      "proxySettings" : {
+        "web" : true,
+        "mobile" : true
+      },
+      "securityDefinitions" : null
+    }
+  },
+  "FileController_deleteFiles" : {
+    "id" : "FileController_deleteFiles",
+    "service" : "FileService",
+    "controller" : "FileController",
+    "operationType" : "boolean",
+    "type" : "boolean",
+    "wmServiceOperationInfo" : {
+      "name" : "deleteFiles",
+      "methodType" : "delete",
+      "relativePath" : "/file/files",
+      "directPath" : "/file/files",
+      "httpMethod" : "delete",
+      "parameters" : [ {
+        "name" : "files",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      } ],
+      "definitions" : { },
+      "produces" : null,
+      "consumes" : null,
+      "proxySettings" : {
+        "web" : true,
+        "mobile" : true
+      },
+      "securityDefinitions" : null
+    }
+  },
+  "FileController_getDownloadFiles" : {
+    "id" : "FileController_getDownloadFiles",
+    "service" : "FileService",
+    "controller" : "FileController",
+    "operationType" : "com.wavemaker.runtime.file.model.DownloadResponse",
+    "type" : "com.wavemaker.runtime.file.model.DownloadResponse",
+    "wmServiceOperationInfo" : {
+      "name" : "getDownloadFiles",
+      "methodType" : "get",
+      "relativePath" : "/file/downloadFiles",
+      "directPath" : "/file/downloadFiles",
+      "httpMethod" : "get",
+      "parameters" : [ {
+        "name" : "files",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      }, {
+        "name" : "returnName",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      } ],
+      "definitions" : { },
+      "produces" : [ "application/octet-stream" ],
+      "consumes" : null,
+      "proxySettings" : {
+        "web" : true,
+        "mobile" : true
+      },
+      "securityDefinitions" : null
+    }
+  },
+  "FileController_setDirectory" : {
+    "id" : "FileController_setDirectory",
+    "service" : "FileService",
+    "controller" : "FileController",
+    "operationType" : "object",
+    "type" : "object",
+    "wmServiceOperationInfo" : {
+      "name" : "setDirectory",
+      "methodType" : "put",
+      "relativePath" : "/file/directory",
+      "directPath" : "/file/directory",
+      "httpMethod" : "put",
+      "parameters" : [ {
+        "name" : "directory",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      } ],
+      "definitions" : { },
+      "produces" : null,
+      "consumes" : null,
+      "proxySettings" : {
+        "web" : true,
+        "mobile" : true
+      },
+      "securityDefinitions" : null
+    }
+  },
+  "FileController_deleteFile" : {
+    "id" : "FileController_deleteFile",
+    "service" : "FileService",
+    "controller" : "FileController",
+    "operationType" : "boolean",
+    "type" : "boolean",
+    "wmServiceOperationInfo" : {
+      "name" : "deleteFile",
+      "methodType" : "delete",
+      "relativePath" : "/file/file",
+      "directPath" : "/file/file",
+      "httpMethod" : "delete",
+      "parameters" : [ {
+        "name" : "file",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      } ],
+      "definitions" : { },
+      "produces" : null,
+      "consumes" : null,
+      "proxySettings" : {
+        "web" : true,
+        "mobile" : true
+      },
+      "securityDefinitions" : null
+    }
+  },
+  "FileController_listFiles" : {
+    "id" : "FileController_listFiles",
+    "service" : "FileService",
+    "controller" : "FileController",
+    "operationType" : "array",
+    "type" : "array",
+    "wmServiceOperationInfo" : {
+      "name" : "listFiles",
+      "methodType" : "get",
+      "relativePath" : "/file/files",
+      "directPath" : "/file/files",
+      "httpMethod" : "get",
+      "parameters" : [ {
+        "name" : "relativePath",
+        "parameterType" : "query",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      } ],
+      "definitions" : { },
+      "produces" : null,
+      "consumes" : null,
+      "proxySettings" : {
+        "web" : true,
+        "mobile" : true
+      },
+      "securityDefinitions" : null
+    }
+  },
+  "FileController_uploadFile" : {
+    "id" : "FileController_uploadFile",
+    "service" : "FileService",
+    "controller" : "FileController",
+    "operationType" : "array",
+    "type" : "array",
+    "wmServiceOperationInfo" : {
+      "name" : "uploadFile",
+      "methodType" : "post",
+      "relativePath" : "/file/uploadFile",
+      "directPath" : "/file/uploadFile",
+      "httpMethod" : "post",
+      "parameters" : [ {
+        "name" : "files",
+        "parameterType" : "formData",
+        "required" : true,
+        "type" : "file",
+        "readOnly" : false,
+        "contentType" : null
+      }, {
+        "name" : "relativePath",
+        "parameterType" : "formData",
+        "required" : false,
+        "type" : "java.lang.String",
+        "readOnly" : false,
+        "contentType" : null
+      } ],
+      "definitions" : {
+        "org.springframework.web.multipart.MultipartFile" : [ {
+          "name" : "name",
+          "parameterType" : null,
+          "required" : false,
+          "type" : "java.lang.String",
+          "readOnly" : false,
+          "contentType" : null
+        }, {
+          "name" : "size",
+          "parameterType" : null,
+          "required" : false,
+          "type" : "java.lang.Long",
+          "readOnly" : false,
+          "contentType" : null
+        }, {
+          "name" : "inputStream",
+          "parameterType" : null,
+          "required" : false,
+          "type" : "java.io.InputStream",
+          "readOnly" : false,
+          "contentType" : null
+        }, {
+          "name" : "contentType",
+          "parameterType" : null,
+          "required" : false,
+          "type" : "java.lang.String",
+          "readOnly" : false,
+          "contentType" : null
+        }, {
+          "name" : "empty",
+          "parameterType" : null,
+          "required" : false,
+          "type" : "java.lang.Boolean",
+          "readOnly" : false,
+          "contentType" : null
+        }, {
+          "name" : "originalFilename",
+          "parameterType" : null,
+          "required" : false,
+          "type" : "java.lang.String",
+          "readOnly" : false,
+          "contentType" : null
+        }, {
+          "name" : "bytes",
+          "parameterType" : null,
+          "required" : false,
+          "type" : null,
+          "readOnly" : false,
+          "contentType" : null
+        } ]
+      },
+      "produces" : null,
+      "consumes" : [ "multipart/form-data" ],
+      "proxySettings" : {
+        "web" : true,
+        "mobile" : true
+      },
+      "securityDefinitions" : null
+    }
+  }
+}

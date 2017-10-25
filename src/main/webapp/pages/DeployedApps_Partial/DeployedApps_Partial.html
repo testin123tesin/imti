@@ -6,10 +6,10 @@
                     <wm-gridcolumn columnwidth="3" name="gridcolumn1"></wm-gridcolumn>
                     <wm-gridcolumn columnwidth="2" name="gridcolumn2"></wm-gridcolumn>
                     <wm-gridcolumn columnwidth="7" class="pull-right" name="gridcolumn3">
-                        <wm-label padding="unset 0.5em" caption="Un-checked" class="pull-right" name="label1" animation="flash"></wm-label>
-                        <wm-container width="15px" height="15px" color="#f5873e" backgroundcolor="#f5873e" class="pull-right" name="container1" animation="flash"></wm-container>
-                        <wm-label padding="unset 0.5em" caption="Checked" class="pull-right" name="label2" animation="flash"></wm-label>
-                        <wm-container width="15px" height="15px" color="#0D406B" backgroundcolor="#0D406B" class="pull-right" name="container2" animation="flash"></wm-container>
+                        <wm-label padding="unset 0.5em" caption="Un-checked" class="pull-right" name="label1" animation="bounce"></wm-label>
+                        <wm-container width="15px" height="15px" color="#f5873e" backgroundcolor="#f5873e" class="pull-right" name="container1" animation="bounce"></wm-container>
+                        <wm-label padding="unset 0.5em" caption="Checked" class="pull-right" name="label2" animation="bounce"></wm-label>
+                        <wm-container width="15px" height="15px" color="#0D406B" backgroundcolor="#0D406B" class="pull-right" name="container2" animation="bounce"></wm-container>
                     </wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>
@@ -18,12 +18,11 @@
                 <wm-table-column binding="appName" caption="App Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
                 <wm-table-column binding="ipAddress" caption="Ip Address" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
                 <wm-table-column binding="state" caption="State" edit-widget-type="text" type="string" show="true" readonly="false">
-                    <wm-switch name="switch1" dataset="HIBERNATE,ACTIVATED" datavalue="{{row.state}}"></wm-switch>
+                    <wm-switch name="switch1" dataset="HIBERNATE,ACTIVATED" datavalue="{{row.state}}" on-change="switch1_1Change($event, $scope, newVal, oldVal)"></wm-switch>
                 </wm-table-column>
                 <wm-table-column binding="Download" caption="Download" widget-type="anchor" width="100px" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
-                    <wm-anchor caption="LOGS" hyperlink="" class="" data-ng-class="" iconclass="wi wi-cloud-download fa-2x" on-click="anchor1Click($event, $scope, row)" show="bind:row.state !=='HIBERNATE'"></wm-anchor>
+                    <wm-anchor caption="LOGS" hyperlink="" class="" data-ng-class="" iconclass="wi wi-cloud-download fa-2x" on-click="anchor1Click($event, $scope, row)"></wm-anchor>
                 </wm-table-column>
-                <wm-table-column binding="emailAddress" caption="Email Address" type="string" show="true" readonly="undefined"></wm-table-column>
             </wm-table>
         </wm-tabpane>
         <wm-tabpane name="tabpane2" title="PASSIVATED CONTAINERS">
@@ -40,5 +39,9 @@
             </wm-dialogactions>
             <wm-checkboxset height="auto" name="checkboxset1" dataset="bind:Variables.emailAddress.dataSet" datafield="All Fields" on-change="checkboxset1Change($event, $scope, newVal, oldVal)"></wm-checkboxset>
         </wm-dialog>
+    </wm-view>
+    <wm-switch datavalue="yes" name="switch1_1" on-change="switch1_1Change($event, $scope, newVal, oldVal)"></wm-switch>
+    <wm-view class="dialog-view" name="view2">
+        <wm-confirmdialog name="confirmdialog1" on-ok="confirmdialog1Ok($event, $scope)" on-cancel="confirmdialog1Cancel($event, $scope)"></wm-confirmdialog>
     </wm-view>
 </wm-partial>

@@ -15,6 +15,9 @@ Application.$controller("DeployedApps_PartialPageController", ["$scope", functio
     };
 
 
+
+
+
 }]);
 
 
@@ -27,12 +30,22 @@ Application.$controller("wavemakeronlineTable1Controller", ["$scope",
 
             debugger;
 
-            var lv = $scope.Variables.logsDownload;
+            var lv = $scope.Variables.deploy_logs;
             lv.setInput({
                 "containerId": row.containerId
             });
 
             lv.invoke();
+
+        };
+
+        $scope.switch1_1Change = function($event, $isolateScope, newVal, oldVal) {
+
+            if (newVal == "ACTIVATED") {
+
+                $scope.Widgets.confirmdialog1.open();
+
+            }
 
         };
     }
@@ -67,6 +80,7 @@ Application.$controller("dialog2Controller", ["$scope",
 
 
         $scope.button2Click = function($event, $isolateScope) {
+            debugger;
 
             if ($scope.Widgets.checkboxset1.datavalue === undefined) {
                 $scope.Variables.emailToast.notify();
@@ -77,31 +91,55 @@ Application.$controller("dialog2Controller", ["$scope",
                     $scope.Variables.emailToast.notify();
                 } else {
 
-                    $scope.Widgets.dialog2.close();
+
 
                     var lv = $scope.Variables.activeContainers;
-                    lv.setInput({
-                        "q": $scope.Widgets.checkboxset1.datavalue[0]
+                    lv.invoke({
+                        'inputFields': {
+                            'q': $scope.Widgets.checkboxset1.datavalue[0]
+                        }
                     });
-
-                    lv.invoke();
 
                     var sv = $scope.Variables.passiveContainers1;
-                    lv.setInput({
-                        "q": $scope.Widgets.checkboxset1.datavalue[0]
+
+                    sv.invoke({
+                        'inputFields': {
+                            'q': $scope.Widgets.checkboxset1.datavalue[0]
+                        }
                     });
 
-                    sv.invoke();
+                    $scope.Widgets.dialog2.close();
                 }
 
             }
 
         };
 
-
         $scope.dialog2Close = function($event, $isolateScope) {
 
             $isolateScope.$parent.$parent.Widgets.container1.show = true;
+
+        };
+
+    }
+]);
+
+Application.$controller("confirmdialog1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+
+        $scope.confirmdialog1Ok = function($event, $isolateScope) {
+
+            //Calling the variable to activate and in success refresh the grid data using below statement.
+
+            // $scope.Widgets.wavemakeronlineTable1.refreshData();
+
+        };
+
+
+        $scope.confirmdialog1Cancel = function($event, $isolateScope) {
+            $scope.Widgets.wavemakeronlineTable1.redraw(true)
 
         };
 

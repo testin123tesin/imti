@@ -7,6 +7,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "Development_Apps_Partial",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
   "name" : "Login",
   "type" : "PAGE",
   "params" : [ ]
@@ -29,6 +33,10 @@
 }, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "test",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "topnav",

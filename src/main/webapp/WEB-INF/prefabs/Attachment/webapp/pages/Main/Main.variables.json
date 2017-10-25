@@ -1,0 +1,3096 @@
+{
+  "CartellaPrefab" : {
+    "_id" : "wm-CartellaPrefab-wm.Variable-1483009394578",
+    "name" : "CartellaPrefab",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:cartella",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "deleteSelected" : {
+    "_id" : "wm-deleteSelected-wm.ServiceVariable-1482838962352",
+    "name" : "deleteSelected",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "file",
+      "value" : "bind:cartella + \"/\" + Widgets.gridmostrafile.selectedItem",
+      "type" : "string"
+    } ],
+    "type" : "boolean",
+    "service" : "FileService",
+    "operation" : "deleteFile",
+    "operationId" : "FileController_deleteFile",
+    "operationType" : "delete",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "Variables.FileServiceListFiles.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
+  },
+  "DeleteSelectedFiles" : {
+    "_id" : "wm-DeleteSelectedFiles-wm.ServiceVariable-1483008728146",
+    "name" : "DeleteSelectedFiles",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "boolean",
+    "service" : "FileService",
+    "operation" : "deleteFiles",
+    "operationId" : "FileController_deleteFiles",
+    "operationType" : "delete",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "Variables.FileServiceListFiles.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
+  },
+  "DirectoryPrefab" : {
+    "_id" : "wm-setDirectory-wm.Variable-1487333277435",
+    "name" : "DirectoryPrefab",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:directory",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "DownloadSelectedFiles" : {
+    "_id" : "wm-downloadAll-wm.ServiceVariable-1482838755434",
+    "name" : "DownloadSelectedFiles",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.wavemaker.runtime.file.model.DownloadResponse",
+    "service" : "FileService",
+    "operation" : "getDownloadFiles",
+    "operationId" : "FileController_getDownloadFiles",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
+  },
+  "EliminaFile" : {
+    "_id" : "wm-EliminaFile-wm.NotificationVariable-1482776977155",
+    "name" : "EliminaFile",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "text",
+      "value" : "bind:\"Sei seicuro di voler eliminare il file \" + \"''\"+ Variables.FileServiceListFiles.dataSet[$i].name+\"''\"",
+      "type" : "string"
+    }, {
+      "target" : "title",
+      "value" : "Elimina file",
+      "type" : "string"
+    }, {
+      "target" : "okButtonText",
+      "value" : "SI",
+      "type" : "string"
+    }, {
+      "target" : "cancelButtonText",
+      "value" : "NO",
+      "type" : "string"
+    } ],
+    "operation" : "confirm",
+    "onOk" : "Variables.FileServiceDeleteFile.invoke()"
+  },
+  "EliminaFiles" : {
+    "_id" : "wm-EliminaFiles-wm.NotificationVariable-1483554189442",
+    "name" : "EliminaFiles",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "text",
+      "value" : "Sei sicuro di voler eliminare i files selezionati?",
+      "type" : "string"
+    }, {
+      "target" : "title",
+      "value" : "Elimina Files",
+      "type" : "string"
+    }, {
+      "target" : "okButtonText",
+      "value" : "Si",
+      "type" : "string"
+    }, {
+      "target" : "cancelButtonText",
+      "value" : "No",
+      "type" : "string"
+    } ],
+    "operation" : "confirm",
+    "onOk" : "EliminaFilesonOk($event, $scope)"
+  },
+  "FilesDeletable" : {
+    "_id" : "wm-FilesDeletable-wm.Variable-1483007997220",
+    "name" : "FilesDeletable",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataBinding",
+      "value" : "bind:Widgets.gridmostrafile.selecteditem"
+    } ],
+    "dataSet" : [ {
+      "name" : "",
+      "path" : "",
+      "type" : "",
+      "size" : ""
+    } ],
+    "type" : "com.newuploadmanager.fileservice.FileService.WMFile",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "FilesDownloadable" : {
+    "_id" : "wm-FilesDownloadable-wm.Variable-1483093227879",
+    "name" : "FilesDownloadable",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "",
+      "path" : "",
+      "type" : "",
+      "size" : ""
+    } ],
+    "type" : "com.newuploadmanager.fileservice.FileService.WMFile",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "FileServiceDeleteFile" : {
+    "_id" : "wm-serviceVariable1-wm.ServiceVariable-1482242938656",
+    "name" : "FileServiceDeleteFile",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "file",
+      "value" : "bind:cartella + '/' + Widgets.gridmostrafile.selecteditem.name",
+      "type" : "string"
+    } ],
+    "type" : "boolean",
+    "service" : "FileService",
+    "operation" : "deleteFile",
+    "operationId" : "FileController_deleteFile",
+    "operationType" : "delete",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "Variables.FileServiceListFiles.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
+  },
+  "FileServiceListFiles" : {
+    "_id" : "wm-FileServiceListFiles-wm.ServiceVariable-1482242518810",
+    "name" : "FileServiceListFiles",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "relativePath",
+      "value" : "bind:cartella",
+      "type" : "string"
+    } ],
+    "type" : "com.newuploadmanager.fileservice.FileService.WMFile",
+    "service" : "FileService",
+    "operation" : "listFiles",
+    "operationId" : "FileController_listFiles",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "File"
+  },
+  "FileServiceUploadFile" : {
+    "_id" : "wm-FileServiceUploadFile-wm.ServiceVariable-1482242337499",
+    "name" : "FileServiceUploadFile",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "relativePath",
+      "value" : "bind:cartella",
+      "type" : "string"
+    } ],
+    "type" : "com.newuploadmanager.fileservice.FileService.FileUploadResponse",
+    "service" : "FileService",
+    "operation" : "uploadFile",
+    "operationId" : "FileController_uploadFile",
+    "operationType" : "post",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "File"
+  },
+  "maxsize" : {
+    "_id" : "wm-maxsize-wm.Variable-1483365861730",
+    "name" : "maxsize",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:maxsize",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "mimetypes" : {
+    "_id" : "wm-mimetypes-wm.Variable-1482331839899",
+    "name" : "mimetypes",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "codice" : ".3dm",
+      "valore" : "x-world/x-3dmf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".3dmf",
+      "valore" : "x-world/x-3dmf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".a",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aab",
+      "valore" : "application/x-authorware-bin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aam",
+      "valore" : "application/x-authorware-map",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aas",
+      "valore" : "application/x-authorware-seg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".abc",
+      "valore" : "text/vnd.abc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".acgi",
+      "valore" : "text/html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".afl",
+      "valore" : "video/animaflex",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ai",
+      "valore" : "application/postscript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aif",
+      "valore" : "audio/aiff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aif",
+      "valore" : "audio/x-aiff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aifc",
+      "valore" : "audio/aiff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aifc",
+      "valore" : "audio/x-aiff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aiff",
+      "valore" : "audio/aiff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aiff",
+      "valore" : "audio/x-aiff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aim",
+      "valore" : "application/x-aim",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aip",
+      "valore" : "text/x-audiosoft-intra",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ani",
+      "valore" : "application/x-navi-animation",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aos",
+      "valore" : "application/x-nokia-9000-communicator-add-on-software",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".aps",
+      "valore" : "application/mime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".arc",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".arj",
+      "valore" : "application/arj",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".arj",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".art",
+      "valore" : "image/x-jg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".asf",
+      "valore" : "video/x-ms-asf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".asm",
+      "valore" : "text/x-asm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".asp",
+      "valore" : "text/asp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".asx",
+      "valore" : "application/x-mplayer2",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".asx",
+      "valore" : "video/x-ms-asf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".asx",
+      "valore" : "video/x-ms-asf-plugin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".au",
+      "valore" : "audio/basic",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".au",
+      "valore" : "audio/x-au",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".avi",
+      "valore" : "application/x-troff-msvideo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".avi",
+      "valore" : "video/avi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".avi",
+      "valore" : "video/msvideo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".avi",
+      "valore" : "video/x-msvideo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".avs",
+      "valore" : "video/avs-video",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bcpio",
+      "valore" : "application/x-bcpio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bin",
+      "valore" : "application/mac-binary",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bin",
+      "valore" : "application/macbinary",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bin",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bin",
+      "valore" : "application/x-binary",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bin",
+      "valore" : "application/x-macbinary",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bm",
+      "valore" : "image/bmp",
+      "immagine" : "bmp.png"
+    }, {
+      "codice" : ".bmp",
+      "valore" : "image/bmp",
+      "immagine" : "bmp.png"
+    }, {
+      "codice" : ".bmp",
+      "valore" : "image/x-windows-bmp",
+      "immagine" : "bmp.png"
+    }, {
+      "codice" : ".bmp",
+      "valore" : "image/x-ms-bmp",
+      "immagine" : "bmp.png"
+    }, {
+      "codice" : ".boo",
+      "valore" : "application/book",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".book",
+      "valore" : "application/book",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".boz",
+      "valore" : "application/x-bzip2",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bsh",
+      "valore" : "application/x-bsh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bz",
+      "valore" : "application/x-bzip",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".bz2",
+      "valore" : "application/x-bzip2",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".c",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".c",
+      "valore" : "text/x-c",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".c++",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cat",
+      "valore" : "application/vnd.ms-pki.seccat",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cc",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cc",
+      "valore" : "text/x-c",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ccad",
+      "valore" : "application/clariscad",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cco",
+      "valore" : "application/x-cocoa",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cdf",
+      "valore" : "application/cdf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cdf",
+      "valore" : "application/x-cdf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cdf",
+      "valore" : "application/x-netcdf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cer",
+      "valore" : "application/pkix-cert",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cer",
+      "valore" : "application/x-x509-ca-cert",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cha",
+      "valore" : "application/x-chat",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".chat",
+      "valore" : "application/x-chat",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".class",
+      "valore" : "application/java",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".class",
+      "valore" : "application/java-byte-code",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".class",
+      "valore" : "application/x-java-class",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".com",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".com",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".conf",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cpio",
+      "valore" : "application/x-cpio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cpp",
+      "valore" : "text/x-c",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cpt",
+      "valore" : "application/mac-compactpro",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cpt",
+      "valore" : "application/x-compactpro",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".cpt",
+      "valore" : "application/x-cpt",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".crl",
+      "valore" : "application/pkcs-crl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".crl",
+      "valore" : "application/pkix-crl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".crt",
+      "valore" : "application/pkix-cert",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".crt",
+      "valore" : "application/x-x509-ca-cert",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".crt",
+      "valore" : "application/x-x509-user-cert",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".csh",
+      "valore" : "application/x-csh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".csh",
+      "valore" : "text/x-script.csh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".css",
+      "valore" : "application/x-pointplus",
+      "immagine" : "css.png"
+    }, {
+      "codice" : ".css",
+      "valore" : "text/css",
+      "immagine" : "css.png"
+    }, {
+      "codice" : ".cxx",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dcr",
+      "valore" : "application/x-director",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".deepv",
+      "valore" : "application/x-deepv",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".def",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".der",
+      "valore" : "application/x-x509-ca-cert",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dif",
+      "valore" : "video/x-dv",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dir",
+      "valore" : "application/x-director",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dl",
+      "valore" : "video/dl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dl",
+      "valore" : "video/x-dl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".doc",
+      "valore" : "application/msword",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dot",
+      "valore" : "application/msword",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dp",
+      "valore" : "application/commonground",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".drw",
+      "valore" : "application/drafting",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dump",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dv",
+      "valore" : "video/x-dv",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dvi",
+      "valore" : "application/x-dvi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dwf",
+      "valore" : "drawing/x-dwf (old)",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dwf",
+      "valore" : "model/vnd.dwf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "application/acad",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "image/vnd.dwg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "image/x-dwg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dxf",
+      "valore" : "application/dxf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dxf",
+      "valore" : "image/vnd.dwg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dxf",
+      "valore" : "image/x-dwg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".dxr",
+      "valore" : "application/x-director",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".el",
+      "valore" : "text/x-script.elisp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".elc",
+      "valore" : "application/x-bytecode.elisp (compiled elisp)",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".elc",
+      "valore" : "application/x-elc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".env",
+      "valore" : "application/x-envoy",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".eps",
+      "valore" : "application/postscript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".es",
+      "valore" : "application/x-esrehber",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".etx",
+      "valore" : "text/x-setext",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".evy",
+      "valore" : "application/envoy",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".evy",
+      "valore" : "application/x-envoy",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".exe",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".f",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".f",
+      "valore" : "text/x-fortran",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".f77",
+      "valore" : "text/x-fortran",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".f90",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".f90",
+      "valore" : "text/x-fortran",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fdf",
+      "valore" : "application/vnd.fdf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fif",
+      "valore" : "application/fractals",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fif",
+      "valore" : "image/fif",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fli",
+      "valore" : "video/fli",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fli",
+      "valore" : "video/x-fli",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".flo",
+      "valore" : "image/florian",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".flx",
+      "valore" : "text/vnd.fmi.flexstor",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fmf",
+      "valore" : "video/x-atomic3d-feature",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".for",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".for",
+      "valore" : "text/x-fortran",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fpx",
+      "valore" : "image/vnd.fpx",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".fpx",
+      "valore" : "image/vnd.net-fpx",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".frl",
+      "valore" : "application/freeloader",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".funk",
+      "valore" : "audio/make",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".g",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".g3",
+      "valore" : "image/g3fax",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gif",
+      "valore" : "image/gif",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gl",
+      "valore" : "video/gl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gl",
+      "valore" : "video/x-gl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gsd",
+      "valore" : "audio/x-gsm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gsm",
+      "valore" : "audio/x-gsm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gsp",
+      "valore" : "application/x-gsp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gss",
+      "valore" : "application/x-gss",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gtar",
+      "valore" : "application/x-gtar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gz",
+      "valore" : "application/x-compressed",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gz",
+      "valore" : "application/x-gzip",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gzip",
+      "valore" : "application/x-gzip",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".gzip",
+      "valore" : "multipart/x-gzip",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".h",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".h",
+      "valore" : "text/x-h",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hdf",
+      "valore" : "application/x-hdf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".help",
+      "valore" : "application/x-helpfile",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hgl",
+      "valore" : "application/vnd.hp-hpgl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hh",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hh",
+      "valore" : "text/x-h",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hlb",
+      "valore" : "text/x-script",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hlp",
+      "valore" : "application/hlp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hlp",
+      "valore" : "application/x-helpfile",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hlp",
+      "valore" : "application/x-winhelp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hpg",
+      "valore" : "application/vnd.hp-hpgl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hpgl",
+      "valore" : "application/vnd.hp-hpgl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hqx",
+      "valore" : "application/binhex",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hqx",
+      "valore" : "application/binhex4",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hqx",
+      "valore" : "application/mac-binhex",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hqx",
+      "valore" : "application/mac-binhex40",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hqx",
+      "valore" : "application/x-binhex40",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hqx",
+      "valore" : "application/x-mac-binhex40",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".hta",
+      "valore" : "application/hta",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".htc",
+      "valore" : "text/x-component",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".htm",
+      "valore" : "text/html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".html",
+      "valore" : "text/html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".htmls",
+      "valore" : "text/html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".htt",
+      "valore" : "text/webviewhtml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".htx",
+      "valore" : "text/html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ice",
+      "valore" : "x-conference/x-cooltalk",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ico",
+      "valore" : "image/x-icon",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".idc",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ief",
+      "valore" : "image/ief",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".iefs",
+      "valore" : "image/ief",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".iges",
+      "valore" : "application/iges",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".iges",
+      "valore" : "model/iges",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".igs",
+      "valore" : "application/iges",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".igs",
+      "valore" : "model/iges",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ima",
+      "valore" : "application/x-ima",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".imap",
+      "valore" : "application/x-httpd-imap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".inf",
+      "valore" : "application/inf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ins",
+      "valore" : "application/x-internett-signup",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ip",
+      "valore" : "application/x-ip2",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".isu",
+      "valore" : "video/x-isvideo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".it",
+      "valore" : "audio/it",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".iv",
+      "valore" : "application/x-inventor",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ivr",
+      "valore" : "i-world/i-vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ivy",
+      "valore" : "application/x-livescreen",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jam",
+      "valore" : "audio/x-jam",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jav",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jav",
+      "valore" : "text/x-java-source",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".java",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".java",
+      "valore" : "text/x-java-source",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jcm",
+      "valore" : "application/x-java-commerce",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jfif",
+      "valore" : "image/jpeg",
+      "immagine" : "jpeg.png"
+    }, {
+      "codice" : ".jfif",
+      "valore" : "image/pjpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jfif-tbnl",
+      "valore" : "image/jpeg",
+      "immagine" : "jpeg.png"
+    }, {
+      "codice" : ".jpe",
+      "valore" : "image/jpeg",
+      "immagine" : "jpeg.png"
+    }, {
+      "codice" : ".jpe",
+      "valore" : "image/pjpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jpeg",
+      "valore" : "image/jpeg",
+      "immagine" : "jpeg.png"
+    }, {
+      "codice" : ".jpeg",
+      "valore" : "image/pjpeg",
+      "immagine" : "jpeg.png"
+    }, {
+      "codice" : ".jpg",
+      "valore" : "image/jpeg",
+      "immagine" : "jpeg.png"
+    }, {
+      "codice" : ".jpg",
+      "valore" : "image/pjpeg",
+      "immagine" : "jpeg.png"
+    }, {
+      "codice" : ".jps",
+      "valore" : "image/x-jps",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".js",
+      "valore" : "application/x-javascript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".js",
+      "valore" : "application/javascript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".js",
+      "valore" : "application/ecmascript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".js",
+      "valore" : "text/javascript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".js",
+      "valore" : "text/ecmascript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".jut",
+      "valore" : "image/jutvision",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".kar",
+      "valore" : "audio/midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".kar",
+      "valore" : "music/x-karaoke",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ksh",
+      "valore" : "application/x-ksh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ksh",
+      "valore" : "text/x-script.ksh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".la",
+      "valore" : "audio/nspaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".la",
+      "valore" : "audio/x-nspaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lam",
+      "valore" : "audio/x-liveaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".latex",
+      "valore" : "application/x-latex",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lha",
+      "valore" : "application/lha",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lha",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lha",
+      "valore" : "application/x-lha",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lhx",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".list",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lma",
+      "valore" : "audio/nspaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lma",
+      "valore" : "audio/x-nspaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".log",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lsp",
+      "valore" : "application/x-lisp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lsp",
+      "valore" : "text/x-script.lisp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lst",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lsx",
+      "valore" : "text/x-la-asf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ltx",
+      "valore" : "application/x-latex",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lzh",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lzh",
+      "valore" : "application/x-lzh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lzx",
+      "valore" : "application/lzx",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lzx",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".lzx",
+      "valore" : "application/x-lzx",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".m",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".m",
+      "valore" : "text/x-m",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".m1v",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".m2a",
+      "valore" : "audio/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".m2v",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".m3u",
+      "valore" : "audio/x-mpequrl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".man",
+      "valore" : "application/x-troff-man",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".map",
+      "valore" : "application/x-navimap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mar",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mbd",
+      "valore" : "application/mbedlet",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mc$",
+      "valore" : "application/x-magic-cap-package-1.0",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mcd",
+      "valore" : "application/mcad",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mcd",
+      "valore" : "application/x-mathcad",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mcf",
+      "valore" : "image/vasa",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mcf",
+      "valore" : "text/mcf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mcp",
+      "valore" : "application/netmc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".me",
+      "valore" : "application/x-troff-me",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mht",
+      "valore" : "message/rfc822",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mhtml",
+      "valore" : "message/rfc822",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mid",
+      "valore" : "application/x-midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mid",
+      "valore" : "audio/midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mid",
+      "valore" : "audio/x-mid",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mid",
+      "valore" : "audio/x-midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mid",
+      "valore" : "music/crescendo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mid",
+      "valore" : "x-music/x-midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".midi",
+      "valore" : "application/x-midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".midi",
+      "valore" : "audio/midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".midi",
+      "valore" : "audio/x-mid",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".midi",
+      "valore" : "audio/x-midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".midi",
+      "valore" : "music/crescendo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".midi",
+      "valore" : "x-music/x-midi",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mif",
+      "valore" : "application/x-frame",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mif",
+      "valore" : "application/x-mif",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mime",
+      "valore" : "message/rfc822",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mime",
+      "valore" : "www/mime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mjf",
+      "valore" : "audio/x-vnd.audioexplosion.mjuicemediafile",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mjpg",
+      "valore" : "video/x-motion-jpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mm",
+      "valore" : "application/base64",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mm",
+      "valore" : "application/x-meme",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mme",
+      "valore" : "application/base64",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mod",
+      "valore" : "audio/mod",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mod",
+      "valore" : "audio/x-mod",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".moov",
+      "valore" : "video/quicktime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mov",
+      "valore" : "video/quicktime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".movie",
+      "valore" : "video/x-sgi-movie",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp2",
+      "valore" : "audio/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp2",
+      "valore" : "audio/x-mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp2",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp2",
+      "valore" : "video/x-mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp2",
+      "valore" : "video/x-mpeq2a",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp3",
+      "valore" : "audio/mpeg3",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp3",
+      "valore" : "audio/x-mpeg-3",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp3",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mp3",
+      "valore" : "video/x-mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpa",
+      "valore" : "audio/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpa",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpc",
+      "valore" : "application/x-project",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpe",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpeg",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpg",
+      "valore" : "audio/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpg",
+      "valore" : "video/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpga",
+      "valore" : "audio/mpeg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpp",
+      "valore" : "application/vnd.ms-project",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpt",
+      "valore" : "application/x-project",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpv",
+      "valore" : "application/x-project",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mpx",
+      "valore" : "application/x-project",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mrc",
+      "valore" : "application/marc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ms",
+      "valore" : "application/x-troff-ms",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mv",
+      "valore" : "video/x-sgi-movie",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".my",
+      "valore" : "audio/make",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".mzz",
+      "valore" : "application/x-vnd.audioexplosion.mzz",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".nap",
+      "valore" : "image/naplps",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".naplps",
+      "valore" : "image/naplps",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".nc",
+      "valore" : "application/x-netcdf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ncm",
+      "valore" : "application/vnd.nokia.configuration-message",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".nif",
+      "valore" : "image/x-niff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".niff",
+      "valore" : "image/x-niff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".nix",
+      "valore" : "application/x-mix-transfer",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".nsc",
+      "valore" : "application/x-conference",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".nvd",
+      "valore" : "application/x-navidoc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".o",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".oda",
+      "valore" : "application/oda",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".omc",
+      "valore" : "application/x-omc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".omcd",
+      "valore" : "application/x-omcdatamaker",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".omcr",
+      "valore" : "application/x-omcregerator",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p",
+      "valore" : "text/x-pascal",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p10",
+      "valore" : "application/pkcs10",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p10",
+      "valore" : "application/x-pkcs10",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p12",
+      "valore" : "application/pkcs-12",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p12",
+      "valore" : "application/x-pkcs12",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p7a",
+      "valore" : "application/x-pkcs7-signature",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p7c",
+      "valore" : "application/pkcs7-mime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p7c",
+      "valore" : "application/x-pkcs7-mime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p7m",
+      "valore" : "application/pkcs7-mime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p7m",
+      "valore" : "application/x-pkcs7-mime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p7r",
+      "valore" : "application/x-pkcs7-certreqresp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".p7s",
+      "valore" : "application/pkcs7-signature",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".part",
+      "valore" : "application/pro_eng",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pas",
+      "valore" : "text/pascal",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pbm",
+      "valore" : "image/x-portable-bitmap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pcl",
+      "valore" : "application/vnd.hp-pcl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pcl",
+      "valore" : "application/x-pcl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pct",
+      "valore" : "image/x-pict",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pcx",
+      "valore" : "image/x-pcx",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pdb",
+      "valore" : "chemical/x-pdb",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pdf",
+      "valore" : "application/pdf",
+      "immagine" : "pdf.png"
+    }, {
+      "codice" : ".pfunk",
+      "valore" : "audio/make",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pfunk",
+      "valore" : "audio/make.my.funk",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pgm",
+      "valore" : "image/x-portable-graymap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pgm",
+      "valore" : "image/x-portable-greymap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pic",
+      "valore" : "image/pict",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pict",
+      "valore" : "image/pict",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pkg",
+      "valore" : "application/x-newton-compatible-pkg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pko",
+      "valore" : "application/vnd.ms-pki.pko",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pl",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pl",
+      "valore" : "text/x-script.perl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".plx",
+      "valore" : "application/x-pixclscript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pm",
+      "valore" : "image/x-xpixmap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pm",
+      "valore" : "text/x-script.perl-module",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pm4",
+      "valore" : "application/x-pagemaker",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pm5",
+      "valore" : "application/x-pagemaker",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".png",
+      "valore" : "image/png",
+      "immagine" : "png.png"
+    }, {
+      "codice" : ".png",
+      "valore" : "image/vnd.microsoft.icon",
+      "immagine" : "png.png"
+    }, {
+      "codice" : ".pnm",
+      "valore" : "application/x-portable-anymap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pnm",
+      "valore" : "image/x-portable-anymap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pot",
+      "valore" : "application/mspowerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".pot",
+      "valore" : "application/vnd.ms-powerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".pov",
+      "valore" : "model/x-pov",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ppa",
+      "valore" : "application/vnd.ms-powerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".ppm",
+      "valore" : "image/x-portable-pixmap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pps",
+      "valore" : "application/mspowerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".pps",
+      "valore" : "application/vnd.ms-powerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".ppt",
+      "valore" : "application/mspowerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".ppt",
+      "valore" : "application/powerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".ppt",
+      "valore" : "application/vnd.ms-powerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".ppt",
+      "valore" : "application/x-mspowerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".ppz",
+      "valore" : "application/mspowerpoint",
+      "immagine" : "ppt.png"
+    }, {
+      "codice" : ".pre",
+      "valore" : "application/x-freelance",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".prt",
+      "valore" : "application/pro_eng",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ps",
+      "valore" : "application/postscript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".psd",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pub",
+      "valore" : "application/x-tika-msoffice",
+      "immagine" : "pub.png"
+    }, {
+      "codice" : ".pub",
+      "valore" : "application/x-mspublisher",
+      "immagine" : "pub.png"
+    }, {
+      "codice" : ".pvu",
+      "valore" : "paleovu/x-pv",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pwz",
+      "valore" : "application/vnd.ms-powerpoint",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".py",
+      "valore" : "text/x-script.phyton",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".pyc",
+      "valore" : "application/x-bytecode.python",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qcp",
+      "valore" : "audio/vnd.qcelp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qd3",
+      "valore" : "x-world/x-3dmf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qd3d",
+      "valore" : "x-world/x-3dmf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qif",
+      "valore" : "image/x-quicktime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qt",
+      "valore" : "video/quicktime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qtc",
+      "valore" : "video/x-qtc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qti",
+      "valore" : "image/x-quicktime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".qtif",
+      "valore" : "image/x-quicktime",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ra",
+      "valore" : "audio/x-pn-realaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ra",
+      "valore" : "audio/x-pn-realaudio-plugin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ra",
+      "valore" : "audio/x-realaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ram",
+      "valore" : "audio/x-pn-realaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ras",
+      "valore" : "application/x-cmu-raster",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ras",
+      "valore" : "image/cmu-raster",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ras",
+      "valore" : "image/x-cmu-raster",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rast",
+      "valore" : "image/cmu-raster",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rexx",
+      "valore" : "text/x-script.rexx",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rf",
+      "valore" : "image/vnd.rn-realflash",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rgb",
+      "valore" : "image/x-rgb",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rm",
+      "valore" : "application/vnd.rn-realmedia",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rm",
+      "valore" : "audio/x-pn-realaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rmi",
+      "valore" : "audio/mid",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rmm",
+      "valore" : "audio/x-pn-realaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rmp",
+      "valore" : "audio/x-pn-realaudio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rmp",
+      "valore" : "audio/x-pn-realaudio-plugin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rng",
+      "valore" : "application/ringing-tones",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rng",
+      "valore" : "application/vnd.nokia.ringing-tone",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rnx",
+      "valore" : "application/vnd.rn-realplayer",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".roff",
+      "valore" : "application/x-troff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rp",
+      "valore" : "image/vnd.rn-realpix",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rpm",
+      "valore" : "audio/x-pn-realaudio-plugin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rt",
+      "valore" : "text/richtext",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rt",
+      "valore" : "text/vnd.rn-realtext",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rtf",
+      "valore" : "application/rtf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rtf",
+      "valore" : "application/x-rtf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rtf",
+      "valore" : "text/richtext",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rtx",
+      "valore" : "application/rtf",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rtx",
+      "valore" : "text/richtext",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".rv",
+      "valore" : "video/vnd.rn-realvideo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".s",
+      "valore" : "text/x-asm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".s3m",
+      "valore" : "audio/s3m",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".saveme",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sbk",
+      "valore" : "application/x-tbook",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".scm",
+      "valore" : "application/x-lotusscreencam",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".scm",
+      "valore" : "text/x-script.guile",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".scm",
+      "valore" : "text/x-script.scheme",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".scm",
+      "valore" : "video/x-scm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sdml",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sdp",
+      "valore" : "application/sdp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sdp",
+      "valore" : "application/x-sdp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sdr",
+      "valore" : "application/sounder",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sea",
+      "valore" : "application/sea",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sea",
+      "valore" : "application/x-sea",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".set",
+      "valore" : "application/set",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sgm",
+      "valore" : "text/sgml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sgm",
+      "valore" : "text/x-sgml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sgml",
+      "valore" : "text/sgml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sgml",
+      "valore" : "text/x-sgml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sh",
+      "valore" : "application/x-bsh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sh",
+      "valore" : "application/x-sh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sh",
+      "valore" : "application/x-shar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sh",
+      "valore" : "text/x-script.sh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".shar",
+      "valore" : "application/x-bsh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".shar",
+      "valore" : "application/x-shar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".shtml",
+      "valore" : "text/html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".shtml",
+      "valore" : "text/x-server-parsed-html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sid",
+      "valore" : "audio/x-psid",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sit",
+      "valore" : "application/x-sit",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sit",
+      "valore" : "application/x-stuffit",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".skd",
+      "valore" : "application/x-koan",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".skm",
+      "valore" : "application/x-koan",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".skp",
+      "valore" : "application/x-koan",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".skt",
+      "valore" : "application/x-koan",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sl",
+      "valore" : "application/x-seelogo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".smi",
+      "valore" : "application/smil",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".smil",
+      "valore" : "application/smil",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".snd",
+      "valore" : "audio/basic",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".snd",
+      "valore" : "audio/x-adpcm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sol",
+      "valore" : "application/solids",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".spc",
+      "valore" : "application/x-pkcs7-certificates",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".spc",
+      "valore" : "text/x-speech",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".spl",
+      "valore" : "application/futuresplash",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".spr",
+      "valore" : "application/x-sprite",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sprite",
+      "valore" : "application/x-sprite",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".src",
+      "valore" : "application/x-wais-source",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ssi",
+      "valore" : "text/x-server-parsed-html",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ssm",
+      "valore" : "application/streamingmedia",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sst",
+      "valore" : "application/vnd.ms-pki.certstore",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".step",
+      "valore" : "application/step",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".stl",
+      "valore" : "application/sla",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".stl",
+      "valore" : "application/vnd.ms-pki.stl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".stl",
+      "valore" : "application/x-navistyle",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".stp",
+      "valore" : "application/step",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sv4cpio",
+      "valore" : "application/x-sv4cpio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".sv4crc",
+      "valore" : "application/x-sv4crc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".svf",
+      "valore" : "image/vnd.dwg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".svf",
+      "valore" : "image/x-dwg",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".svr",
+      "valore" : "application/x-world",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".svr",
+      "valore" : "x-world/x-svr",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".swf",
+      "valore" : "application/x-shockwave-flash",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".t",
+      "valore" : "application/x-troff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".talk",
+      "valore" : "text/x-speech",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tar",
+      "valore" : "application/x-tar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tbk",
+      "valore" : "application/toolbook",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tbk",
+      "valore" : "application/x-tbook",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tcl",
+      "valore" : "application/x-tcl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tcl",
+      "valore" : "text/x-script.tcl",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tcsh",
+      "valore" : "text/x-script.tcsh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tex",
+      "valore" : "application/x-tex",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".texi",
+      "valore" : "application/x-texinfo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".texinfo",
+      "valore" : "application/x-texinfo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".text",
+      "valore" : "application/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".text",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tgz",
+      "valore" : "application/gnutar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tgz",
+      "valore" : "application/x-compressed",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tif",
+      "valore" : "image/tiff",
+      "immagine" : "photoshop.png"
+    }, {
+      "codice" : ".tif",
+      "valore" : "image/x-tiff",
+      "immagine" : "photoshop.png"
+    }, {
+      "codice" : ".tiff",
+      "valore" : "image/tiff",
+      "immagine" : "photoshop.png"
+    }, {
+      "codice" : ".tiff",
+      "valore" : "image/x-tiff",
+      "immagine" : "photoshop.png"
+    }, {
+      "codice" : ".tr",
+      "valore" : "application/x-troff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tsi",
+      "valore" : "audio/tsp-audio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tsp",
+      "valore" : "application/dsptype",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tsp",
+      "valore" : "audio/tsplayer",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".tsv",
+      "valore" : "text/tab-separated-values",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".turbot",
+      "valore" : "image/florian",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".txt",
+      "valore" : "text/plain",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".uil",
+      "valore" : "text/x-uil",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".uni",
+      "valore" : "text/uri-list",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".unis",
+      "valore" : "text/uri-list",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".unv",
+      "valore" : "application/i-deas",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".uri",
+      "valore" : "text/uri-list",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".uris",
+      "valore" : "text/uri-list",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ustar",
+      "valore" : "application/x-ustar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".ustar",
+      "valore" : "multipart/x-ustar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".uu",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".uu",
+      "valore" : "text/x-uuencode",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".uue",
+      "valore" : "text/x-uuencode",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vcd",
+      "valore" : "application/x-cdlink",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vcs",
+      "valore" : "text/x-vcalendar",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vda",
+      "valore" : "application/vda",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vdo",
+      "valore" : "video/vdo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vew",
+      "valore" : "application/groupwise",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".viv",
+      "valore" : "video/vivo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".viv",
+      "valore" : "video/vnd.vivo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vivo",
+      "valore" : "video/vivo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vivo",
+      "valore" : "video/vnd.vivo",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vmd",
+      "valore" : "application/vocaltec-media-desc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vmf",
+      "valore" : "application/vocaltec-media-file",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".voc",
+      "valore" : "audio/voc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".voc",
+      "valore" : "audio/x-voc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vos",
+      "valore" : "video/vosaic",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vox",
+      "valore" : "audio/voxware",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vqe",
+      "valore" : "audio/x-twinvq-plugin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vqf",
+      "valore" : "audio/x-twinvq",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vql",
+      "valore" : "audio/x-twinvq-plugin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vrml",
+      "valore" : "application/x-vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vrml",
+      "valore" : "model/vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vrml",
+      "valore" : "x-world/x-vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vrt",
+      "valore" : "x-world/x-vrt",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vsd",
+      "valore" : "application/x-visio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vst",
+      "valore" : "application/x-visio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".vsw",
+      "valore" : "application/x-visio",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".w60",
+      "valore" : "application/wordperfect6.0",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".w61",
+      "valore" : "application/wordperfect6.1",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".w6w",
+      "valore" : "application/msword",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wav",
+      "valore" : "audio/wav",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wav",
+      "valore" : "audio/x-wav",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wb1",
+      "valore" : "application/x-qpro",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wbmp",
+      "valore" : "image/vnd.wap.wbmp",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".web",
+      "valore" : "application/vnd.xara",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wiz",
+      "valore" : "application/msword",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wk1",
+      "valore" : "application/x-123",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wmf",
+      "valore" : "windows/metafile",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wml",
+      "valore" : "text/vnd.wap.wml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wmlc",
+      "valore" : "application/vnd.wap.wmlc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wmls",
+      "valore" : "text/vnd.wap.wmlscript",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wmlsc",
+      "valore" : "application/vnd.wap.wmlscriptc",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".word",
+      "valore" : "application/msword",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wp",
+      "valore" : "application/wordperfect",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wp5",
+      "valore" : "application/wordperfect",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wp5",
+      "valore" : "application/wordperfect6.0",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wp6",
+      "valore" : "application/wordperfect",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wpd",
+      "valore" : "application/wordperfect",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wpd",
+      "valore" : "application/x-wpwin",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wq1",
+      "valore" : "application/x-lotus",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wri",
+      "valore" : "application/mswrite",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wri",
+      "valore" : "application/x-wri",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wrl",
+      "valore" : "application/x-world",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wrl",
+      "valore" : "model/vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wrl",
+      "valore" : "x-world/x-vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wrz",
+      "valore" : "model/vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wrz",
+      "valore" : "x-world/x-vrml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wsc",
+      "valore" : "text/scriplet",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wsrc",
+      "valore" : "application/x-wais-source",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".wtk",
+      "valore" : "application/x-wintalk",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xbm",
+      "valore" : "image/x-xbitmap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xbm",
+      "valore" : "image/x-xbm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xbm",
+      "valore" : "image/xbm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xdr",
+      "valore" : "video/x-amt-demorun",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xgz",
+      "valore" : "xgl/drawing",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xif",
+      "valore" : "image/vnd.xiff",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xl",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xla",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xla",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xla",
+      "valore" : "application/x-msexcel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlb",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlb",
+      "valore" : "application/vnd.ms-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlb",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlc",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlc",
+      "valore" : "application/vnd.ms-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlc",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xld",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xld",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlk",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlk",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xll",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xll",
+      "valore" : "application/vnd.ms-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xll",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlm",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlm",
+      "valore" : "application/vnd.ms-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlm",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xls",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xls",
+      "valore" : "application/vnd.ms-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xls",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xls",
+      "valore" : "application/x-msexcel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlt",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlt",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlv",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlv",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlw",
+      "valore" : "application/excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlw",
+      "valore" : "application/vnd.ms-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlw",
+      "valore" : "application/x-excel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlw",
+      "valore" : "application/x-msexcel",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xm",
+      "valore" : "audio/xm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xml",
+      "valore" : "application/xml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xml",
+      "valore" : "text/xml",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xmz",
+      "valore" : "xgl/movie",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xpix",
+      "valore" : "application/x-vnd.ls-xpix",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xpm",
+      "valore" : "image/x-xpixmap",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xpm",
+      "valore" : "image/xpm",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".x-png",
+      "valore" : "image/png",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xsr",
+      "valore" : "video/x-amt-showrun",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xwd",
+      "valore" : "image/x-xwd",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xwd",
+      "valore" : "image/x-xwindowdump",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xyz",
+      "valore" : "chemical/x-pdb",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".z",
+      "valore" : "application/x-compress",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".z",
+      "valore" : "application/x-compressed",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".zip",
+      "valore" : "application/x-compressed",
+      "immagine" : "zip.png"
+    }, {
+      "codice" : ".zoo",
+      "valore" : "application/octet-stream",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".zsh",
+      "valore" : "text/x-script.zsh",
+      "immagine" : "file.png"
+    }, {
+      "codice" : ".xlsx",
+      "valore" : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "immagine" : "xls.png"
+    }, {
+      "codice" : ".docx",
+      "valore" : "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "immagine" : "doc.png"
+    }, {
+      "codice" : ".rar",
+      "valore" : "application/x-rar-compressed",
+      "immagine" : "rar.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "application/autocad_dwg",
+      "immagine" : "dwg.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "application/x-acad",
+      "immagine" : "dwg.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "application/dwg",
+      "immagine" : "dwg.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "application/x-autocad",
+      "immagine" : "dwg.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "application/x-acad",
+      "immagine" : "dwg.png"
+    }, {
+      "codice" : ".dwg",
+      "valore" : "drawing/dwg",
+      "immagine" : "dwg.png"
+    }, {
+      "codice" : ".odt",
+      "valore" : "application/vnd.oasis.opendocument.text",
+      "immagine" : "doc.png"
+    }, {
+      "codice" : ".odt",
+      "valore" : "application/x-vnd.oasis.opendocument.text",
+      "immagine" : "doc.png"
+    }, {
+      "codice" : ".zip",
+      "valore" : "application/x-compress",
+      "immagine" : "zip.png"
+    }, {
+      "codice" : ".zip",
+      "valore" : "application/x-compressed",
+      "immagine" : "zip.png"
+    }, {
+      "codice" : ".zip",
+      "valore" : "application/x-zip-compressed",
+      "immagine" : "zip.png"
+    }, {
+      "codice" : ".zip",
+      "valore" : "application/zip",
+      "immagine" : "zip.png"
+    }, {
+      "codice" : ".zip",
+      "valore" : "multipart/x-zip",
+      "immagine" : "zip.png"
+    }, {
+      "codice" : ".xlsx",
+      "valore" : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "immagine" : "xls.png"
+    }, {
+      "codice" : ".xlsx",
+      "valore" : "application/vnd.openxmlformats-officedocument.spreadsheetml.template",
+      "immagine" : "xls.png"
+    } ],
+    "type" : "string",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "nessunFileSelezionato" : {
+    "_id" : "wm-nessunFileSelezionato-wm.NotificationVariable-1483368142642",
+    "name" : "nessunFileSelezionato",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "text",
+      "value" : "Nessun file selezionato",
+      "type" : "string"
+    }, {
+      "target" : "title",
+      "value" : "Nessun file selezionato",
+      "type" : "string"
+    }, {
+      "target" : "okButtonText",
+      "value" : "OK",
+      "type" : "string"
+    }, {
+      "target" : "alerttype",
+      "value" : "information",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "ServiceDownload" : {
+    "_id" : "wm-ServiceDownload-wm.ServiceVariable-1482243416234",
+    "name" : "ServiceDownload",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "file",
+      "value" : "bind:cartella + '/' + Widgets.gridmostrafile.selecteditem.name",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.runtime.file.model.DownloadResponse",
+    "service" : "FileService",
+    "operation" : "getDownloadFile",
+    "operationId" : "FileController_getDownloadFile",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
+  },
+  "serviceVariable1" : {
+    "_id" : "wm-serviceVariable1-wm.ServiceVariable-1482838477178",
+    "name" : "serviceVariable1",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "relativePath",
+      "value" : "bind:cartella + '/' + Widgets.SelectAll.badgevalue",
+      "type" : "string"
+    } ],
+    "type" : "com.newuploadmanager.fileservice.FileService.WMFile",
+    "service" : "FileService",
+    "operation" : "listFiles",
+    "operationId" : "FileController_listFiles",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
+  },
+  "setDirectory" : {
+    "_id" : "wm-setDirectory-wm.ServiceVariable-1487333465230",
+    "name" : "setDirectory",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "service" : "FileService",
+    "operation" : "setDirectory",
+    "operationId" : "FileController_setDirectory",
+    "operationType" : "put",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "en" : "English",
+      "it" : "italiano"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "TypeAllowed" : {
+    "_id" : "wm-TypeAllowed-wm.Variable-1482795553994",
+    "name" : "TypeAllowed",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "dataValue" : ".doc"
+    }, {
+      "dataValue" : ".xls"
+    } ],
+    "type" : "string",
+    "isList" : true,
+    "saveInPhonegap" : false
+  }
+}

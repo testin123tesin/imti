@@ -51,6 +51,10 @@ Application.run(function($rootScope) {
 
     $rootScope.activeContainersonSuccess = function(variable, data) {
 
+        //Finding the container with app name null so it is dev container.
+
+        $rootScope.Variables.dev_data.dataSet = _.find($rootScope.Variables.activeContainers.dataSet.success.body.content, ['appName', null]);
+
         debugger;
 
         $rootScope.Variables.emailAddress.dataSet = _.uniqBy(_.map(data.success.body.content, 'emailAddress'));
@@ -63,6 +67,13 @@ Application.run(function($rootScope) {
             $rootScope.Widgets.container2.show = true;
         }
 
+
+    };
+
+
+    $rootScope.activeContainersonBeforeUpdate = function(variable, inputData) {
+
+        debugger;
 
     };
 

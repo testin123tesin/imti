@@ -10,13 +10,13 @@
                         <wm-text name="text1" width="300" placeholder="Search with EmailID" backgroundcolor="#0D406B" color="#f9f1f1" datavalue="praveen.noonsawath@wavemaker.com"></wm-text>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="7" name="gridcolumn2">
-                        <wm-button class="btn-default" caption="Search" type="button" margin="unset 0.5em" name="button1" on-click="Variables.activeContainers.invoke();Variables.passiveContainers1.invoke()"></wm-button>
+                        <wm-button class="btn-default" caption="Search" type="button" margin="unset 0.5em" name="button1" on-click="Variables.activeContainers.invoke();Variables.passiveContainers1.invoke();button1Click($event, $scope)"></wm-button>
                     </wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow3" padding="30px unset unset unset"></wm-gridrow>
                 <wm-gridrow name="gridrow2"></wm-gridrow>
             </wm-layoutgrid>
-            <wm-container name="container2" show="false">
+            <wm-container name="container2" show="true">
                 <wm-tabs name="tabs1" class="test">
                     <wm-tabpane name="tabpane1" title="User Details">
                         <wm-layoutgrid name="layoutgrid2">
@@ -38,9 +38,11 @@
                             </wm-gridrow>
                         </wm-layoutgrid>
                     </wm-tabpane>
-                    <wm-tabpane name="tabpane2" title="Dev Containers"></wm-tabpane>
+                    <wm-tabpane name="tabpane2" title="Dev Containers">
+                        <wm-container name="container3" content="Development_Apps_Partial"></wm-container>
+                    </wm-tabpane>
                     <wm-tabpane name="tabpane3" title="Deployed Apps">
-                        <wm-container name="container1" content="DeployedApps_Partial"></wm-container>
+                        <wm-container name="container1" content="DeployedApps_Partial" show="true"></wm-container>
                     </wm-tabpane>
                 </wm-tabs>
             </wm-container>

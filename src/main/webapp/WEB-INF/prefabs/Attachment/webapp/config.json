@@ -1,0 +1,46 @@
+{
+  "displayName" : "Attachment",
+  "group" : "Management",
+  "templateUrl" : "/pages/Main/Main.html",
+  "controllerUrl" : "/pages/Main/Main.js",
+  "variablesUrl" : "/pages/Main/Main.variables.json",
+  "iconUrl" : "/resources/images/imagelists/system-file-manager.ico",
+  "resources" : {
+    "styles" : [ "/pages/Main/Main.css" ],
+    "scripts" : [ "/resources/momentLocale/it.js" ],
+    "modules" : [ ]
+  },
+  "properties" : {
+    "cartella" : {
+      "type" : "string",
+      "displayName" : "cartella",
+      "bindable" : "in-bound",
+      "value" : "cartella",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "maxsize" : {
+      "type" : "string",
+      "displayName" : "maxsize",
+      "bindable" : "in-out-bound",
+      "value" : "3",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "ListaFiles" : {
+      "type" : "method",
+      "method" : "FileServiceListFiles"
+    },
+    "directory" : {
+      "type" : "string",
+      "displayName" : "directory",
+      "bindable" : "in-out-bound",
+      "value" : "",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    }
+  }
+}

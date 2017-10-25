@@ -1,0 +1,44 @@
+<wm-page data-ng-controller="AttachmentController" name="page1">
+    <wm-content name="content1">
+        <wm-layoutgrid name="layoutgrid1">
+            <wm-gridrow name="gridrow4">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn4" horizontalalign="left">
+                    <wm-anchor margin="unset 0.5em" name="SelectAll" caption="Seleziona tutti" on-click="SelectAllClick($event, $scope)"></wm-anchor>
+                    <wm-anchor margin="unset 0.5em" name="DeselectAll" caption="Deseleziona tutti" on-click="DeselectAllClick($event, $scope)"></wm-anchor>
+                    <wm-anchor margin="unset 0.5em" name="DownloadAll" caption="Scarica selezionati" on-click="DownloadAllClick($event, $scope)"></wm-anchor>
+                    <wm-anchor margin="unset 0.5em" name="DeleteAll" caption="Elimina Selezionati" on-click="Variables.EliminaFiles.invoke()"></wm-anchor>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-container name="container3">
+            <wm-fileupload name="fileuploadwidget" service="FileService" operation="uploadFile" multiple="true" destination="bind:Variables.CartellaPrefab.dataSet.dataValue" on-success="Variables.FileServiceListFiles.invoke()" caption="Trascina qui per caricare i tuoi file"
+                fileuploadmessage="Puoi sfogliare i tuoi file cliccando qua" on-select="fileuploadwidgetSelect($event, $scope)"></wm-fileupload>
+        </wm-container>
+        <wm-container name="container4">
+            <wm-table title="" dataset="bind:Variables.FileServiceListFiles.dataSet" navigation="None" name="gridmostrafile" spacing="condensed" showheader="false" gridclass="" radioselect="false" multiselect="true" on-datarender="gridmostrafileDatarender($scope, $data)"
+                showrowindex="false" pagesize="10" height="300" enablesort="false" nodatamessage="Nessun file presente" on-deselect="gridmostrafileDeselect($event, $rowData)">
+                <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" readonly="true" sortable="false" show="true"></wm-table-column>
+                <wm-table-column binding="type" caption="Type" widget-type="image" edit-widget-type="text" type="string" readonly="true" sortable="false" searchable="false" show="true">
+                    <wm-picture picturesource="{{assegnaImmagine(row.getProperty('type'))}}" hint="{{assegnaImmagine(row.getProperty('type'))}}" class="" width="32" height="32" data-ng-class=""></wm-picture>
+                </wm-table-column>
+                <wm-table-column binding="size" caption="Size" widget-type="label" edit-widget-type="text" type="string" readonly="true" searchable="false" show="true">
+                    <wm-label caption="{{approximateBytes(row.getProperty('size'))}}" class="" data-ng-class=""></wm-label>
+                </wm-table-column>
+                <wm-table-column binding="Download" caption="" widget-type="button" edit-widget-type="text" type="string" readonly="true" sortable="false" searchable="false" show="true">
+                    <wm-button caption="" show="true" class="btn-sm btn-primary" iconclass="wi wi-file-download" on-click="Variables.ServiceDownload.invoke()" data-ng-class=""></wm-button>
+                </wm-table-column>
+                <wm-table-column binding="Elimina" caption="" widget-type="button" edit-widget-type="text" type="string" readonly="true" sortable="false" searchable="false" show="true">
+                    <wm-button caption="" show="true" class="btn-sm btn-primary" iconclass="wi wi-trash" on-click="RichiediConferma($event, $rowData)" data-ng-class=""></wm-button>
+                </wm-table-column>
+            </wm-table>
+        </wm-container>
+    </wm-content>
+    <wm-view class="dialog-view" name="view2" show="false">
+        <wm-confirmdialog name="notificationconfirmdialog" controller="NotificationDialogController" notificationdialog="confirm" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" canceltext="{{notification.cancelButtonText}}"
+            on-ok="variableOnOk()" on-cancel="variableOnCancel()" on-close="variableOnClose()"></wm-confirmdialog>
+    </wm-view>
+    <wm-view name="notificationAlertDialogView" class="dialog-view" show="false">
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}"
+            on-ok="variableOnOk()" on-close="variableOnClose()"></wm-alertdialog>
+    </wm-view>
+</wm-page>

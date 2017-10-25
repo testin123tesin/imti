@@ -30,6 +30,20 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
 
     $scope.search2Submit = function($event, $isolateScope) {
 
+        debugger;
+
+    };
+
+
+    $scope.button1Click = function($event, $isolateScope) {
+        debugger;
+    };
+
+
+    $scope.switch2Change = function($event, $isolateScope, newVal, oldVal) {
+
+
+
     };
 
 }]);

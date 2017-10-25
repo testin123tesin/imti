@@ -1,0 +1,68 @@
+{
+  "basePath" : "${rest.deployed_logs.basepath}",
+  "paths" : {
+    "/rest/admin/files/container/{containerId}/archive" : {
+      "x-WM-BASE_PATH" : "/rest/admin/files/container/{containerId}/archive",
+      "x-WM-TAG" : "RestServiceVirtualController",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/x-octet-stream", "application/octet-stream" ],
+        "operationId" : "deployed_logs_RestServiceVirtualController-invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-EDITABLE" : true,
+          "in" : "header",
+          "name" : "containerId",
+          "description" : "containerId",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false
+        }, {
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "dirPath",
+          "format" : "string",
+          "description" : "dirPath",
+          "type" : "string",
+          "required" : false
+        } ],
+        "tags" : [ "RestServiceVirtualController" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.deployed_logs.scheme}://${rest.deployed_logs.host}${rest.deployed_logs.basepath}/rest/admin/files/container/{containerId}/archive"
+    }
+  },
+  "host" : "${rest.deployed_logs.host}",
+  "schemes" : [ "${rest.deployed_logs.scheme}" ],
+  "definitions" : {
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "deployed_logs.RootResponse",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ]
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : false,
+    "x-WM-USE_PROXY_FOR_MOBILE" : false,
+    "x-WM-API_ID" : "6e8568e3-803b-4b3d-a786-f8b5fced0378",
+    "x-WM-SERVICE_ID" : "wavemakeronline3",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService"
+  },
+  "tags" : [ {
+    "name" : "RestServiceVirtualController",
+    "description" : "Rest service swagger documentation"
+  } ]
+}

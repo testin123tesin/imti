@@ -18,6 +18,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
+    "onBeforeUpdate" : "activeContainersonBeforeUpdate($event, $scope)",
     "onSuccess" : "activeContainersonSuccess($event, $scope)",
     "startUpdate" : false,
     "autoUpdate" : false,
@@ -55,6 +56,69 @@
     "isList" : false,
     "saveInPhonegap" : false
   },
+  "deploy_logs" : {
+    "_id" : "wm-deploy_logs-wm.ServiceVariable-1507878913325",
+    "name" : "deploy_logs",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "dirPath",
+      "value" : "/usr/local/Tomcat/current/logs",
+      "type" : "string"
+    } ],
+    "type" : "deployed_logs.RootResponse",
+    "service" : "deployed_logs",
+    "operation" : "invoke",
+    "operationId" : "deployed_logs_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "RestServiceVirtual"
+  },
+  "dev_data" : {
+    "_id" : "wm-dev_data-wm.Variable-1507876105980",
+    "name" : "dev_data",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "Dev_logsDownload" : {
+    "_id" : "wm-logsDownload-wm.ServiceVariable-1507292505603",
+    "name" : "Dev_logsDownload",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "dirPath",
+      "value" : "/root/WaveMaker/WaveMaker-Studio/logs",
+      "type" : "string"
+    } ],
+    "type" : "wavemakeronline2.RootResponse",
+    "service" : "wavemakeronline2",
+    "operation" : "invoke",
+    "operationId" : "wavemakeronline2_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "RestServiceVirtual"
+  },
   "emailAddress" : {
     "_id" : "wm-staticVariable1-wm.Variable-1507311354964",
     "name" : "emailAddress",
@@ -74,35 +138,16 @@
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
-  "logsDownload" : {
-    "_id" : "wm-logsDownload-wm.ServiceVariable-1507292505603",
-    "name" : "logsDownload",
+  "goToPage_test" : {
+    "_id" : "wm-goToPage_test-wm.NavigationVariable-1507618753809",
+    "name" : "goToPage_test",
     "owner" : "App",
-    "category" : "wm.ServiceVariable",
-    "dataBinding" : [ {
-      "target" : "dirPath",
-      "value" : "/root/WaveMaker/WaveMaker-Studio/logs",
-      "type" : "string"
-    }, {
-      "target" : "containerId",
-      "value" : "bind:Widgets.wavemakeronlineTable1.selecteditem.containerId",
-      "type" : "string"
-    } ],
-    "type" : "wavemakeronline2.RootResponse",
-    "service" : "wavemakeronline2",
-    "operation" : "invoke",
-    "operationId" : "wavemakeronline2_RestServiceVirtualController-invoke",
-    "operationType" : "get",
-    "serviceType" : "RestService",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "test",
     "dataSet" : [ ],
-    "isList" : false,
-    "maxResults" : 20,
-    "startUpdate" : false,
-    "autoUpdate" : false,
-    "inFlightBehavior" : "executeLast",
-    "transformationRequired" : false,
-    "saveInPhonegap" : false,
-    "controller" : "RestServiceVirtual"
+    "pageTransitions" : "none"
   },
   "passiveContainers1" : {
     "_id" : "wm-passiveContainers1-wm.ServiceVariable-1507285581114",
